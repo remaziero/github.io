@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <script>
+    //Relógio 
+    function mueveReloj() {
+      momentoActual = new Date()
+      hora = momentoActual.getHours()
+      minuto = momentoActual.getMinutes()
+      segundo = momentoActual.getSeconds()
+
+      str_segundo = new String(segundo)
+      if (str_segundo.length == 1)
+        segundo = "0" + segundo
+
+      str_minuto = new String(minuto)
+      if (str_minuto.length == 1)
+        minuto = "0" + minuto
+
+      str_hora = new String(hora)
+      if (str_hora.length == 1)
+        hora = "0" + hora
+
+      horaImprimible = hora + " : " + minuto + " : " + segundo
+
+      document.form_reloj.reloj.value = horaImprimible
+
+      setTimeout("mueveReloj()", 1000)
+    }	
+  </script>
+</head>
+
+
+<body onload="mueveReloj()">
+  <div class="Titindex">
+    <h1><%= title %></h1>
+    <p>Bem vindo ao <%= title %></p>
+    <p>Quantidade de registros: <%= docs.length %></p>
+
+  </div>
+  <img id="logo" src="http://localhost:3000/images/MetroDFlogo.jpg" alt="Minha imagem de teste">
+
+
+  <div id=form_reloj>
+    <form name="form_reloj">
+      <input type="text" name="reloj" class="rel" size="10" onfocus="window.document.form_reloj.reloj.blur()">
+    </form>
+  </div>
+  <div>
+
+    <script>
+      //Data por extenso 
+      dayName = new Array("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado")
+      monName = new Array("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+      now = new Date
+      document.write("<h4> Hoje é " + dayName[now.getDay()] + ", " + now.getDate() + " de " + monName[now.getMonth()] + " de " + now.getFullYear() + ". </h4>")
+    </script>
+    <h2 class="h2sec">Dados em tempo real</h2>
+  </div>
+
+
+
+
+  <fieldset class="estacoes">
+    <div>
+      <div id="TOTGERAL">
+        <h3><label>TOTAL GERAL DE HOJE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+          <label id="e">E=</label>
+          <input type="text" placeholder="Entrada hoje" name="diae" class="diae" disabled=""
+            value=<%= parseInt(arnmA,10) + parseInt(galmA,10) + parseInt(ctlmA,10) %>>
+          <label id="s">S=</label>
+          <input type="text" placeholder="Saida hoje" name="dias" class="dias" disabled=""
+            value=<%= parseInt(arnmB,10) + parseInt(galmB,10) + parseInt(ctlmB,10) %>>
+        </h3>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="estacoes">
+    <div class="ARN">
+      <label>ARN</label>
+      <div>
+        <label id="e">E=</label>
+        <input type="text" placeholder="Entrada hoje" name="diae" class="diae" disabled="" value=<%= arnmA %>>
+        <label id="s">S=</label>
+        <input type="text" placeholder="Saida hoje" name="dias" class="dias" disabled="" value=<%= arnmB %>>
+        <a href="arn"><input type="button" class="btDetalhes" value="DETALHES"></a>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="estacoes">
+    <div class="GAL">
+      <label>GAL</label>
+      <div>
+        <label id="e">E=</label>
+        <input type="text" placeholder="Entrada hoje" name="diae" class="diae" disabled="" value=<%= galmA %>>
+        <label id="s">S=</label>
+        <input type="text" placeholder="Saida hoje" name="dias" class="dias" disabled="" value=<%= galmB %>>
+        <a href="gal"><input type="button" class="btDetalhes" value="DETALHES"></a>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="estacoes">
+    <div class="CTL">
+      <label>CTL</label>
+      <div>
+        <label id="e">E=</label>
+        <input type="text" placeholder="Entrada hoje" name="diae" class="diae" disabled="" value=<%= ctlmA %>>
+        <label id="s">S=</label>
+        <input type="text" placeholder="Saida hoje" name="dias" class="dias" disabled="" value=<%= ctlmB %>>
+        <a href="ctl"><input type="button" class="btDetalhes" value="DETALHES"></a>
+      </div>
+    </div>
+  </fieldset>
+
+
+
+
+
+
+
+  </div>
+  <html>
+
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.charts.load('current', { 'packages': ['corechart'] });
+
+      //Defina um retorno de chamada para ser executado quando a API de visualização do Google for carregada.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['ARN-entradas', 5],
+          ['ARN-saidas', 3],
+          ['GAL-entradas', 3],
+          ['GAL-saídas', 4],
+          ['CTL-entradas', 1],
+          ['CTL-saídas', 2]
+        ]);
+
+        // Set chart options
+        var options = {
+          'title': 'Carregamento de entrada hoje nas estações',
+          'width': 2000,
+          'height': 1800
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+        function selectHandler() {
+          var selectedItem = chart.getSelection()[0];
+          if (selectedItem) {
+            var topping = data.getValue(selectedItem.row, 0);
+            //alert('The user selected ' + topping); //aqui pode-se colocar uma ação
+          }
+        }
+
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+        chart.draw(data, options);
+      }
+
+    </script>
+  </head>
+
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" style="width:400; height:300"></div>
+  </body>
+
+  </html>
+
+</body>
+
+</html>

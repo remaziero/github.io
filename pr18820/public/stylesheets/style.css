@@ -1,0 +1,105 @@
+.tith1, .topo, .tabel{
+  float: left;
+}
+.mapa{
+  float: right;
+}
+.h2sec{
+  align-content: space-around;
+}
+
+#e {
+  color:green;
+}
+#s {
+  color:red;
+}
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body		{background-color: #cae4c2; 
+          color: rgb(15, 85, 155);}
+;
+
+a {
+  color: #00B7FF;
+}
+.data {
+  width: 150px;
+}
+.horai {
+  width: 80px;
+}
+.horaf {
+  width: 80px;
+}
+.totale {
+  width: 100px;
+  background-color: linen;
+  color: forestgreen;
+  font-style: italic;
+}
+.totals {
+  width: 100px;
+  background-color: linen;
+  color: #FF0000;
+  font-style: italic;
+}
+.diae {
+  width: 100px;
+  background-color: linen;
+  color: forestgreen;
+  font-style: italic;
+}
+.dias {
+  width: 100px;
+  background-color: linen;
+  color: #FF0000;
+  font-style: italic;
+}
+.minutoi {
+  width: 80px;
+}
+.minutof {
+  width: 80px;
+}
+.estacoes{
+  background-color: #def3de;; ; 
+}
+.rel{
+  width: 100px;
+  background-color : Black;
+  color : White; 
+  font-family : Verdana, Arial, Helvetica; 
+  font-size : 8pt; 
+  text-align : center;
+}
+#consult{
+  float: left;
+}
+#TOTGERAL{
+  float: left;
+}
+.btExpDia, .btExportar, .btLimpar, .btConsulta, .btDetalhes, .btPrincipal  {
+  background-color: slategray;
+  color: white;
+}
+
+body		{font-family: sans-serif;}
+body		{background-color: #E6E6FA;}
+body		{color: rgb(15, 85, 155)}
+table		{empty-cells: show;}
+.on			{background-color: 	#00FF00;}
+.off		{background-color: 	#FF0000;}
+.set_on		{background-color: 	#CCFFCC;}
+.set_off	{background-color: 	#FFCCCC;}
+.unknown	{background-color: 	#DDDDDD;}
+.celsoma	{background-color: 	#DDDDDD;}
+.on:before, .set_on:before		{content: '1';}
+.off:before, .set_off:before	{content: '0';}
+.unknown:before					{content: "?";}
+#output0,#output1{
+  cursor: pointer;
+}

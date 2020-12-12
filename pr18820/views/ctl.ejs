@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<title>CTL</title>
+
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		
+
+
+		<script>
+
+			//Relógio 
+function mueveReloj(){
+	momentoActual = new Date()
+	hora = momentoActual.getHours()
+	minuto = momentoActual.getMinutes()
+	segundo = momentoActual.getSeconds()
+	
+	str_segundo = new String (segundo)
+	if (str_segundo.length == 1) 
+		segundo = "0" + segundo
+		
+	str_minuto = new String (minuto)
+	if (str_minuto.length == 1) 
+		minuto = "0" + minuto
+
+	str_hora = new String (hora)
+	if (str_hora.length == 1) 
+		hora = "0" + hora
+		
+	horaImprimible = hora + " : " + minuto + " : " + segundo
+	
+	document.form_reloj.reloj.value = horaImprimible
+	
+	setTimeout("mueveReloj()",1000)
+}	
+	</script>
+
+
+
+	</head>
+  
+	<body onload="mueveReloj()">
+		<fieldset class="datext">
+<div>
+	<form name="form_reloj" >
+		<input type="text" name="reloj" class="rel" size="10" onfocus="window.document.form_reloj.reloj.blur()">
+	</form>
+</div>	
+<div>
+	
+		<script>
+			//Data por extenso 
+			dayName = new Array ("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado")
+			monName = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+			now = new Date
+			document.write ("<h4> Hoje é " + dayName[now.getDay() ] + ", " + now.getDate () + " de " + monName [now.getMonth() ]   +  " de "  +     now.getFullYear () + ". </h4>")
+		</script>
+		<h2 class="h2sec">Dados em tempo real</h2>
+		<a href="./"><input type="button" class="btPrincipal" value="PRINCIPAL" target="_blank"></a>
+	</fieldset>	
+</div>	
+
+	
+		 
+	<div class="topo">
+		<img src="http://localhost:3000/images/MetroDFlogo.jpg" alt="logo_Metro_DF">
+		<h1 class="tith1">___CTL___</h1> 
+	</div>
+	<div class="mapa">
+		<img src="http://localhost:3000/images/MetroDFLinhas.jpg" alt="lunhas_Metro_DF">
+	</div>
+			
+
+	<div class='tabel'>
+		<table>
+
+		<tr>
+			<th>BL</th>
+			<th>E</th>
+			<th>S</th>
+			<th>TE</th>	
+			<th>TS</th>			
+		</tr>
+		<tr>
+			<td >[1]</td>
+			<td class="unknown" id="a1"></td>
+			<td class="unknown" id="e1"></td>
+			<td class="celsoma" id="sum_Ea1"></td>
+			<td class="celsoma" id="sum_Sa1"></td>
+		</tr>
+		<tr>
+			<td >[2]</td>
+			<td class="unknown" id="a2"></td>	
+			<td class="unknown" id="e2"></td>
+			<td class="celsoma" id="sum_Ea2"></td>	
+			<td class="celsoma" id="sum_Sa2"></td>	
+		</tr>
+		<tr>
+			<td >[3]</td>
+			<td class="unknown" id="a3"></td>	
+			<td class="unknown" id="e3 "></td>
+			<td class="celsoma" id="sum_Ea3"></td>	
+			<td class="celsoma" id="sum_Sa3"></td>	
+		</tr>
+		<tr>
+			<td >[4]</td>
+			<td class="unknown" id="a4"></td>	
+			<td class="unknown" id="e4"></td>	
+			<td class="celsoma" id="sum_Ea4"></td>
+			<td class="celsoma" id="sum_Sa4"></td>	
+		</tr>
+		<tr>
+			<td >[5]</td>
+			<td class="unknown" id="a5"></td>	
+			<td class="unknown" id="e5"></td>	
+			<td class="celsoma" id="sum_Ea5"></td>	
+			<td class="celsoma" id="sum_Sa5"></td>
+		</tr>
+		<tr>
+			<td >[6]</td>
+			<td class="unknown" id="a6"></td>	
+			<td class="unknown" id="e6"></td>
+			<td class="celsoma" id="sum_Ea6"></td>
+			<td class="celsoma" id="sum_Sa6"></td>		
+		</tr>
+		<tr>
+			<td >[7]</td>
+			<td class="unknown" id="a7"></td>	
+			<td class="unknown" id="e7"></td>	
+			<td class="celsoma" id="sum_Ea7"></td>	
+			<td class="celsoma" id="sum_Sa7"></td>
+		</tr>
+		<tr>
+			<td >[8]</td>
+			<td class="unknown" id="a8"></td>	
+			<td class="unknown" id="e8"></td>	
+			<td class="celsoma" id="sum_Ea8"></td>	
+			<td class="celsoma" id="sum_Sa8"></td>
+		</tr>
+		<tr>
+			<td >[9]</td>
+			<td class="unknown" id="b1"></td>	
+			<td class="unknown" id="d1"></td>	
+			<td class="celsoma" id="sum_Eb1"></td>
+			<td class="celsoma" id="sum_Sb1"></td>	
+		</tr>
+		<tr>
+			<td >[10]</td>
+			<td class="unknown" id="b2"></td>
+			<td class="unknown" id="d2"></td>
+			<td class="celsoma" id="sum_Eb2"></td>	
+			<td class="celsoma" id="sum_Sb2"></td>		
+		</tr>		
+		<tr>
+			<td >[11]</td>
+			<td class="unknown" id="b3"></td>	
+			<td class="unknown" id="d3"></td>	
+			<td class="celsoma" id="sum_Eb3"></td>	
+			<td class="celsoma" id="sum_Sb3"></td>
+		</tr>
+		<tr>
+			<td >[12]</td>
+			<td class="unknown" id="b4"></td>	
+			<td class="unknown" id="d4"></td>	
+			<td class="celsoma" id="sum_Eb4"></td>	
+			<td class="celsoma" id="sum_Sb4"></td>
+		</tr>
+		<tr>
+			<td >[13]</td>
+			<td class="unknown" id="b5"></td>	
+			<td class="unknown" id="d5"></td>	
+			<td class="celsoma" id="sum_Eb5"></td>	
+			<td class="celsoma" id="sum_Sb5"></td>
+		</tr>
+		<tr>
+			<td >[14]</td>
+			<td class="unknown" id="b6"></td>	
+			<td class="unknown" id="d6"></td>	
+			<td class="celsoma" id="sum_Eb6"></td>	
+			<td class="celsoma" id="sum_Sb6"></td>
+		</tr>
+		<tr>
+			<td >[15]</td>
+			<td class="unknown" id="b7"></td>	
+			<td class="unknown" id="d7"></td>	
+			<td class="celsoma" id="sum_Eb7"></td>	
+			<td class="celsoma" id="sum_Sb7"></td>
+		</tr>
+		<tr>
+			<td >[16]</td>
+			<td class="unknown" id="b8"></td>	
+			<td class="unknown" id="d8"></td>
+			<td class="celsoma" id="sum_Eb8"></td>	
+			<td class="celsoma" id="sum_Sb8"></td>	
+		</tr>
+		<tr>
+			<td >[17]</td>
+			<td class="unknown" id="c1"></td>		
+			<td class="unknown" id="c5"></td>	
+			<td class="celsoma" id="sum_Ec1"></td>
+			<td class="celsoma" id="sum_Sc1"></td>
+		</tr>
+		<tr>
+			<td >[18]</td>
+			<td class="unknown" id="c2"></td>		
+			<td class="unknown" id="c6"></td>	
+			<td class="celsoma" id="sum_Ec2"></td>
+			<td class="celsoma" id="sum_Sc2"></td>
+		</tr>
+		<tr>
+			<td >[19]</td>
+			<td class="unknown" id="c3"></td>	
+			<td class="unknown" id="c7"></td>	
+			<td class="celsoma" id="sum_Ec3"></td>	
+			<td class="celsoma" id="sum_Sc3"></td>
+		</tr>
+		<tr>
+			<td >[20]</td>
+			<td class="unknown" id="c4"></td>	
+			<td class="unknown" id="c8"></td>	
+			<td class="celsoma" id="sum_Ec4"></td>	
+			<td class="celsoma" id="sum_Sc4"></td>	
+		</tr>	
+		<tr>
+			<td ><B><I>TOTAL HOJE</td>
+			<td></td>	
+			<td></td>	
+			<td class="celsoma" id="sum_ET"><%= ctlmA %></td>	
+			<td class="celsoma" id="sum_ST"><%= ctlmB %></td>	
+		</tr>
+		</table>
+	</div>
+<div>
+	
+</div>
+<div id =consult> 
+	<label id="e">E=</label> 
+	<input id="totalectl" type="text" placeholder="Total entrada"  name="totale" class="totale" disabled="">
+	<label id="s">S=</label> 
+	<input id="totalsctl" type="text" placeholder="Total saida"  name="totals" class="totals" disabled="">                  
+	<input type="date" class="data" placeholder="Data"> 
+	<input type="time" placeholder="Hora inicio" name="horai" class="horai">
+	<input type="time" placeholder="Hora fim" name="horaf" class="horaf">
+	<button type="submit" class="btConsulta">CONSULTAR</button>
+	<button type="submit" class="btLimpar">LIMPAR</button>
+	<button type="submit" class="btExportar">EXPORTAR</button>
+  </div> 		
+
+
+	</body>
+</html>
